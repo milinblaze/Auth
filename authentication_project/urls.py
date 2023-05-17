@@ -18,10 +18,13 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import path
 from authentication_app import views
+from django.urls import include, path
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/register/', views.UserRegisterView.as_view(), name='api_register'),
     path('api/login/', views.UserLoginView.as_view(), name='api_login'),
+    path('auth/', include('authentication_app.urls')),
 ]
